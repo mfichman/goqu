@@ -137,6 +137,9 @@ func (csg *commonSQLGenerator) LimitSQL(b sb.SQLBuilder, limit interface{}) {
 		if csg.dialectOptions.SurroundLimitWithParentheses {
 			b.WriteRunes(csg.dialectOptions.RightParenRune)
 		}
+		if csg.dialectOptions.LimitEndFragment != nil {
+			b.Write(csg.dialectOptions.LimitEndFragment)
+		}
 	}
 }
 
